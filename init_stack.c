@@ -12,13 +12,21 @@
 
 #include "push_swap.h"
 
-void    init_stack(int ac, char **av, t_stack *a, t_stack *b)
+void	print_stack(t_stack *stack)
 {
-	int i;
-	int	j;
+	while (stack)
+	{
+		printf("%d\n", stack->data);
+		stack = stack->next;
+	}
+}
+
+void	init_stack(int ac, char **av, t_stack *a, t_stack *b)
+{
+	int		i;
+	int		j;
 	char	**in_str;
 
-	(void)b;
 	i = 0;
 	while (++i < ac)
 	{
@@ -28,13 +36,12 @@ void    init_stack(int ac, char **av, t_stack *a, t_stack *b)
 			j = -1;
 			while (in_str[++j])
 				add_back(ft_atoi(in_str[j]), &a);
+			free_matriz(in_str);
 		}
 		else
 			add_back(ft_atoi(av[i]), &a);
 	}
-	while (a)
-	{
-		printf("%d\n", a->data);
-		a = a->next;
-	}
+	verify_stack(a);
+	//call_sort(&a, & &b);
+	free_stack(&a);
 }

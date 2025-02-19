@@ -27,24 +27,35 @@ typedef struct s_stack
 }	t_stack;
 
 // main.c
-int	main(int ac, char **av);
+int		main(int ac, char **av);
 
 // init_stack.c
-void    init_stack(int ac, char **av, t_stack *a, t_stack *b);
+void	init_stack(int ac, char **av, t_stack *a, t_stack *b);
 
 // add_back.c
-t_stack *create_node(long long value);
-void    add_back(long long value, t_stack **back);
+t_stack	*create_node(long long value);
+void	add_back(long long value, t_stack **back);
 
 // ft_utils.c
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-long long	ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 char	*ft_strchr(const char *s, int c);
 
 // ft_split.c
-char	**ft_split(char const *s, char c);
 static int	split_words(char **result, char const *s, char c, int word);
+char		**ft_split(char const *s, char c);
 static int	numwords(char const *s, char c);
+
+// free_matriz.c
+void	free_matriz(char **stack);
+void	free_exit(char **str);
+void	exit_program(void);
+void	free_stack(t_stack **stack);
+void	has_space(char *check);
+
+// verify_stack.c
+void	double_digit(t_stack *a);
+void	verify_stack(t_stack *a);
 
 #endif
